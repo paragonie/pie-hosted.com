@@ -1,0 +1,32 @@
+{
+  "name": "paragonie/pie-hosted.com",
+  "license": "ISC",
+  "require": {
+    "php": "^7",
+    "nikic/fast-route": "^1.2",
+    "league/commonmark": "^0.15",
+    "paragonie/constant_time_encoding": "^1|^2",
+    "paragonie/sodium_compat": "^1.3",
+    "slim/http": "^0|^1",
+    "twig/twig": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "ParagonIE\\Hosted\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ParagonIE\\Hosted\\Tests\\": "test/"
+    }
+  },
+  "require-dev": {
+    "vimeo/psalm": "^0|^1",
+    "phpunit/phpunit": "^6"
+  },
+  "scripts": {
+    "start": "php -S 0.0.0.0:1337 -t public public/index.php",
+    "static-analysis": "psalm",
+    "test": "phpunit"
+  }
+}

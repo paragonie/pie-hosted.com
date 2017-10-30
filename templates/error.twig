@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block body %}
+{% if status == 404 %}
+    <h3>HTTP 404 / Not Found</h3>
+{% elseif status == 405 %}
+    <h3>HTTP 405 / Method Not Allowed</h3>
+{% elseif status == 500 %}
+    <h3>HTTP 500 / Internal Server Error</h3>
+{% endif %}
+<p>
+    <img src="https://http.cat/{{ status|e('url') }}" alt="HTTP {{ status|e('html_atr') }}" />
+</p>
+{% endblock %}
