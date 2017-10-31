@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 
-{% block body %}
+{% block main %}
 {% if status == 404 %}
     <h3>HTTP 404 / Not Found</h3>
 {% elseif status == 405 %}
@@ -9,6 +9,6 @@
     <h3>HTTP 500 / Internal Server Error</h3>
 {% endif %}
 <p>
-    <img src="https://http.cat/{{ status|e('url') }}" alt="HTTP {{ status|e('html_atr') }}" />
+    <img src="https://http.cat/{{ status|e('url') }}" alt="HTTP {{ status|e('html_attr') }}" />
 </p>
 {% endblock %}

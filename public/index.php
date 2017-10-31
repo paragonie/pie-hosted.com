@@ -13,6 +13,27 @@ $dispatcher = Hosted::getRouteDispatcher();
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 
+// PHP Built-in-Webserver: Show CSS/JS properly.
+$file = $_SERVER['DOCUMENT_ROOT'] . '/' . $uri;
+if (\file_exists($file) && !\is_dir($file)) {
+    $realpath = \realpath($file);
+    if (\strpos($realpath, $_SERVER['DOCUMENT_ROOT']) === 0) {
+        if (\preg_match('/\.(js|css)$/', \strtolower($realpath), $matches)) {
+            $ext = $matches[1];
+            switch($ext) {
+                case 'css':
+                    \header('Content-Type: text/css');
+                    break;
+                case 'js':
+                    \header('Content-Type: application/javascript');
+                    break;
+            }
+            echo \file_get_contents($realpath);
+            exit;
+        }
+    }
+}
+
 // Strip query string (?foo=bar) and decode URI
 $pos = strpos($uri, '?');
 if ($pos !== false) {
