@@ -4,7 +4,7 @@
   "require": {
     "php": "^7.3",
     "nikic/fast-route": "^1.2",
-    "league/commonmark": "^0.15",
+    "league/commonmark": "^1",
     "paragonie/constant_time_encoding": "^1|^2",
     "paragonie/sodium_compat": "^1.11",
     "slim/slim": "^3",
