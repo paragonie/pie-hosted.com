@@ -10,7 +10,9 @@ use ParagonIE\Hosted\Handler\{
     IndexPage
 };
 use Slim\Http\{
-    Headers, Response, Stream
+    Headers,
+    Response,
+    Stream
 };
 
 /**
